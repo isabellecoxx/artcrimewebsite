@@ -29,7 +29,8 @@ header {
     display: flex;
     justify-content: center;
     gap: 30px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .headers a {
@@ -46,10 +47,10 @@ header {
 .monument-cards {
     display: flex;
     flex-direction: row;
-    gap: 20px;
-    align-items: center;
     justify-content: center;
-    margin-bottom: 40px;
+    align-items: stretch;
+    gap: 30px;
+    padding: 0 20px;
 }
 
 .monument-card {
@@ -280,3 +281,27 @@ button:hover {
     }
 }
 
+@media (max-width: 768px) {
+
+    .monument-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .monument-card {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .monument-card img {
+        height: auto;
+        aspect-ratio: 4 / 3;
+    }
+    .headers {
+        flex-wrap: wrap;
+        white-space: normal;
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
