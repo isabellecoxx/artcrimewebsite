@@ -1,3 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 body {
     margin: 0;
     background-color: #535346;
@@ -20,6 +29,7 @@ header {
     display: flex;
     justify-content: center;
     gap: 30px;
+    flex-wrap: wrap;
 }
 
 .headers a {
@@ -186,6 +196,7 @@ button:hover {
     background-color: #2f2e29;
     border-radius: 8px;
     width: 350px;
+    max-width: 90vw;
     overflow: hidden;
     box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
@@ -227,5 +238,45 @@ button:hover {
 
 .dropdown.active .arrow {
     transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+
+    .headers {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .monument-cards {
+        flex-direction: column;
+    }
+
+    .for-vs-against {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dropdown {
+        width: 90%;
+    }
+
+    .monument-card {
+        width: 90%;
+    }
+
+    .monument-image-scroll img {
+        width: 95%;
+        height: auto;
+    }
+
+    .body-text {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        padding: 0 10px;
+    }
 }
 
