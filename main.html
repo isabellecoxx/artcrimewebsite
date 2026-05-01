@@ -1,0 +1,102 @@
+<!--Main page that shows leading question, 3 cards for each historical site, and header navigation bar!-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Title</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.png">
+</head>
+
+<body>
+    <!-- navigation bar -->
+    <header>
+        <div class="headers">
+            <a href="main.html">Home</a>
+            <a href="leopold.html">Leopold II</a>
+            <a href="auschwitz.html">Auschwitz</a>
+            <a href="lincoln.html">Lincoln Memorial</a>
+            <a href="about.html">About</a>
+        </div>
+    </header>
+
+    <!-- div for leading question-->
+    <div class="leading-question">
+        <h2>What should be done about controversial monuments and memorials throughout the world?</h2>
+        <h2>How should we determine whether a controversial monument is worth removing or maintaining?</h2>
+        <h2>How does this precedent affect how we view vandalism in the arts? </h2>
+    </div>
+
+    <!-- div container for all 3 monument cards-->
+     <div class="monument-cards">
+
+        <!-- div for first monument-->
+        <a href="leopold.html" class="card-link">
+
+            <div class="monument-card">
+
+                <img src="images/leopold.jpg" alt="Equestrian Statue of Leopold II" class="monument-image">
+
+                <h3>Equestrian Statue of Leopold II</h3>
+
+                <!-- museum placard -->
+                <div class="placard">
+                    <p style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);">
+                        An equestrian statue of King Leopold II located in Brussels, Belgium.
+                        This monument has been the subject of controversy due to Leopold's role in the exploitation of the Congo Free State.
+                    </p>
+                </div>
+
+            </div>
+        </a>
+        
+         <!-- div for second monument-->
+         <a href="auschwitz.html" class="card-link">
+
+            <div class="monument-card">
+
+                <img src="images/auschwitz.avif" alt="Auschwitz Concentration Camp" class="monument-image">
+
+                <h3>Auschwitz Concentration Camp</h3>
+
+                <!-- museum placard -->
+                <div class="placard">
+                    <p style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);">
+                        A former concentration camp located in Poland, where millions of people (primarily Jews) were imprisoned and killed during World War II.
+                        The camp has been preserved as a museum and memorial to the victims of the Holocaust, but it has also been criticized for its commercialization and the way it presents the history of the event.
+                    </p>
+                </div>
+            </div>
+        </a>
+
+         <!-- div for third monument-->
+         <a href="lincoln.html" class="card-link">
+
+            <div class="monument-card">
+
+                <img src="images/lincoln.jpg" alt="Lincoln Memorial" class="monument-image">
+
+                <h3>Lincoln Emancipation Memorial</h3>
+
+                <!-- museum placard -->
+                <div class="placard">
+                    <p style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);">
+                        A monument dedicated to Abraham Lincoln located in Washington, D.C.
+                        It honors Lincoln's role in the emancipation of enslaved people in the United States.
+                        However, the monument has been criticized for its portrayal of African Americans and its failure to fully acknowledge the role of Black individuals in the abolition of slavery.
+                    </p>
+                </div>
+            </div>
+         </a>
+
+
+     </div>
+
+
+    <script src="features.js"></script>
+ 
+</body>
+
+</html>

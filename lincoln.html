@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Title</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.png">
+</head>
+
+<body>
+
+    <!-- navigation bar -->
+    <header>
+        <div class="headers">
+            <a href="main.html">Home</a>
+            <a href="leopold.html">Leopold II</a>
+            <a href="auschwitz.html">Auschwitz</a>
+            <a href="lincoln.html">Lincoln Memorial</a>
+            <a href="about.html">About</a>
+        </div>
+    </header>
+
+    <!-- title of monument -->
+    <h1 style="text-align: center; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);">Lincoln Emancipation Memorial</h1>
+
+    <!-- image of statue-->
+    <div class="monument-image-scroll">
+        <img id="imageViewer" src="images/lincoln1.png" alt="Lincoln Emancipation Memorial">
+    </div>
+
+    <!-- button to view next image-->
+    <div class="button-container">
+        <button onclick="nextImage()">Next</button>
+    </div>
+
+    <!-- body text -->
+    <div class="body-text">
+        <h4 style="color: #9b8f6a">About the Monument</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat.
+            In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor.
+            Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere.
+            Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos..</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat.
+            In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
+            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+        <h4 style="color: #9b8f6a">Controversy</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat.
+            In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor.
+            Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere.
+            Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos..</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat.
+            In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
+            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+    </div>
+
+    <script>
+        const images = ["images/lincoln1.png", "images/lincoln2.jpg", "images/lincoln3.jpg"];
+    </script>
+
+    <script src="features.js"></script>
+ 
+</body>
+
+</html>
