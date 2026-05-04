@@ -1,4 +1,9 @@
-<!--Main page that shows leading question, 3 cards for each historical site, and header navigation bar!-->
+<!--
+    index.html
+    this is the homepage. it shows the main question, a short intro,
+    and three cards for the leopold, auschwitz, and lincoln case studies.
+    each card has a small vote widget so users can vote from the homepage.
+-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,92 +15,124 @@
     <link rel="icon" href="images/favicon.png">
 </head>
 
+<!-- firebase is loaded before the body so it is ready when features.js runs -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="features.js"></script>
+
 <body>
-    <!-- navigation bar -->
-    <header>
-        <div class="headers">
-            <a href="index.html">Home</a>
-            <a href="leopold.html">Leopold II</a>
-            <a href="auschwitz.html">Auschwitz</a>
-            <a href="lincoln.html">Lincoln Memorial</a>
+    <div class="artcrime-root">
+
+        <!-- sticky nav bar at the top of the page -->
+        <nav>
+            <span class="nav-logo">Art Crime</span>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="leopold.html">Leopold II</a></li>
+                <li><a href="auschwitz.html">Auschwitz</a></li>
+                <li><a href="lincoln.html">Lincoln Memorial</a></li>
+            </ul>
+        </nav>
+
+        <!-- hero section with the guiding questions for the site -->
+        <div class="hero">
+            <div class="hero-kicker">Monuments &amp; Memory</div>
+            <h1 class="hero-title">What should be done about<br><em>controversial</em> monuments?</h1>
+            <div class="hero-questions">
+                <p class="hero-question">How should we determine whether a controversial monument is worth removing or maintaining?</p>
+                <p class="hero-question">How does this precedent affect how we view vandalism in the arts?</p>
+            </div>
         </div>
-    </header>
 
-    <!-- div for leading question-->
-    <div class="leading-question">
-        <h2>What should be done about controversial monuments and memorials throughout the world?</h2>
-        <h2>How should we determine whether a controversial monument is worth removing or maintaining?</h2>
-        <h2>How does this precedent affect how we view vandalism in the arts? </h2>
+        <!-- decorative divider between the hero and the cards -->
+        <div class="divider"><div class="divider-dot"></div></div>
+
+        <p class="section-label">Case Studies</p>
+
+        <!-- three monument cards -->
+        <div class="cards">
+
+            <!-- leopold card -->
+            <div class="card">
+                <div class="card-img-wrap">
+                    <img class="card-img" src="images/leopold.jpg" alt="Equestrian Statue of Leopold II" />
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">Brussels, Belgium</span>
+                    <h2 class="card-title">Equestrian Statue of Leopold II</h2>
+                    <p class="card-desc">An equestrian statue of King Leopold II located in Brussels, Belgium. This monument has been the subject of controversy due to Leopold's role in the exploitation of the Congo Free State. Some view it as national Belgian pride, others see it as a symbol of colonial oppression.</p>
+                    <a class="card-link" href="leopold.html">Explore case</a>
+
+                    <!-- mini vote buttons, counts are updated live from firebase -->
+                    <div class="card-vote" id="card-vote-leopold">
+                        <button class="card-vote-btn card-vote-btn-remove" onclick="castVote('leopold','remove'); updateCardUI('leopold')" id="cv-remove-leopold">
+                            <span class="card-vote-count" id="card-count-remove-leopold">0</span>
+                            Take down
+                        </button>
+                        <button class="card-vote-btn card-vote-btn-keep" onclick="castVote('leopold','keep'); updateCardUI('leopold')" id="cv-keep-leopold">
+                            <span class="card-vote-count" id="card-count-keep-leopold">0</span>
+                            Keep up
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- auschwitz card -->
+            <div class="card">
+                <div class="card-img-wrap">
+                    <img class="card-img" src="images/auschwitz.avif" alt="Auschwitz Concentration Camp" />
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">Oświęcim, Poland</span>
+                    <h2 class="card-title">Auschwitz Concentration Camp</h2>
+                    <p class="card-desc">A former concentration camp where millions of people (primarily Jews) were imprisoned and killed during World War II. The camp has been preserved as a museum and memorial to the victims of the Holocaust, but it has also been criticized for its commercialization.</p>
+                    <a class="card-link" href="auschwitz.html">Explore case</a>
+
+                    <div class="card-vote" id="card-vote-auschwitz">
+                        <button class="card-vote-btn card-vote-btn-remove" onclick="castVote('auschwitz','remove'); updateCardUI('auschwitz')" id="cv-remove-auschwitz">
+                            <span class="card-vote-count" id="card-count-remove-auschwitz">0</span>
+                            Take down
+                        </button>
+                        <button class="card-vote-btn card-vote-btn-keep" onclick="castVote('auschwitz','keep'); updateCardUI('auschwitz')" id="cv-keep-auschwitz">
+                            <span class="card-vote-count" id="card-count-keep-auschwitz">0</span>
+                            Keep up
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- lincoln card -->
+            <div class="card">
+                <div class="card-img-wrap">
+                    <img class="card-img" src="images/lincoln.jpg" alt="Lincoln Emancipation Memorial" />
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">Washington, D.C.</span>
+                    <h2 class="card-title">Lincoln Emancipation Memorial</h2>
+                    <p class="card-desc">A monument dedicated to Abraham Lincoln located in Washington, D.C. It honors Lincoln's role in the emancipation of enslaved people in the United States. However, it has been heavily criticized for its portrayal of African Americans, particularly in the way it depicts their role in the abolition of slavery.</p>
+                    <a class="card-link" href="lincoln.html">Explore case</a>
+
+                    <div class="card-vote" id="card-vote-lincoln">
+                        <button class="card-vote-btn card-vote-btn-remove" onclick="castVote('lincoln','remove'); updateCardUI('lincoln')" id="cv-remove-lincoln">
+                            <span class="card-vote-count" id="card-count-remove-lincoln">0</span>
+                            Take down
+                        </button>
+                        <button class="card-vote-btn card-vote-btn-keep" onclick="castVote('lincoln','keep'); updateCardUI('lincoln')" id="cv-keep-lincoln">
+                            <span class="card-vote-count" id="card-count-keep-lincoln">0</span>
+                            Keep up
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- page footer -->
+        <footer class="footer">
+            <span class="footer-copy">Art Crime — Monuments &amp; Memory</span>
+            <span class="footer-name">Isabelle Cox</span>
+        </footer>
+
     </div>
-
-    <!-- div container for all 3 monument cards-->
-     <div class="monument-cards">
-
-        <!-- div for first monument-->
-        <a href="leopold.html" class="card-link">
-
-            <div class="monument-card">
-
-                <img src="images/leopold.jpg" alt="Equestrian Statue of Leopold II" class="monument-image">
-
-                <h3>Equestrian Statue of Leopold II</h3>
-
-                <!-- museum placard -->
-                <div class="placard">
-                    <p style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);">
-                        An equestrian statue of King Leopold II located in Brussels, Belgium.
-                        This monument has been the subject of controversy due to Leopold's role in the exploitation of the Congo Free State.
-                    </p>
-                </div>
-
-            </div>
-        </a>
-        
-         <!-- div for second monument-->
-         <a href="auschwitz.html" class="card-link">
-
-            <div class="monument-card">
-
-                <img src="images/auschwitz.avif" alt="Auschwitz Concentration Camp" class="monument-image">
-
-                <h3>Auschwitz Concentration Camp</h3>
-
-                <!-- museum placard -->
-                <div class="placard">
-                    <p style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);">
-                        A former concentration camp located in Poland, where millions of people (primarily Jews) were imprisoned and killed during World War II.
-                        The camp has been preserved as a museum and memorial to the victims of the Holocaust, but it has also been criticized for its commercialization and the way it presents the history of the event.
-                    </p>
-                </div>
-            </div>
-        </a>
-
-         <!-- div for third monument-->
-         <a href="lincoln.html" class="card-link">
-
-            <div class="monument-card">
-
-                <img src="images/lincoln.jpg" alt="Lincoln Memorial" class="monument-image">
-
-                <h3>Lincoln Emancipation Memorial</h3>
-
-                <!-- museum placard -->
-                <div class="placard">
-                    <p style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);">
-                        A monument dedicated to Abraham Lincoln located in Washington, D.C.
-                        It honors Lincoln's role in the emancipation of enslaved people in the United States.
-                        However, the monument has been criticized for its portrayal of African Americans and its failure to fully acknowledge the role of Black individuals in the abolition of slavery.
-                    </p>
-                </div>
-            </div>
-         </a>
-
-
-     </div>
-
-
-    <script src="features.js"></script>
- 
 </body>
-
 </html>

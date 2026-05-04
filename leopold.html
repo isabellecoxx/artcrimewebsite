@@ -1,102 +1,139 @@
+<!--
+    leopold.html
+    this page covers the equestrian statue of leopold ii in brussels.
+    it includes background on the monument, historical context about
+    leopold's rule of the congo, arguments for and against removal,
+    the group's perspective, and a vote widget.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Title</title>
+    <title>Equestrian Statue of Leopold II, Art Crime</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/favicon.png">
 </head>
 
+<!-- firebase is loaded before the body so it is ready when features.js runs -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="features.js"></script>
+
 <body>
-    <!-- navigation bar -->
-    <header>
-        <div class="headers">
-            <a href="index.html">Home</a>
-            <a href="leopold.html">Leopold II</a>
-            <a href="auschwitz.html">Auschwitz</a>
-            <a href="lincoln.html">Lincoln Memorial</a>
+
+    <!-- sticky nav bar -->
+    <nav>
+        <a href="index.html" class="nav-logo">Art Crime</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="leopold.html" class="active">Leopold II</a></li>
+            <li><a href="auschwitz.html">Auschwitz</a></li>
+            <li><a href="lincoln.html">Lincoln Memorial</a></li>
+        </ul>
+    </nav>
+
+    <!-- full-width hero image with the page title overlaid -->
+    <div class="page-hero">
+        <img src="images/leopold3.avif" alt="Equestrian Statue of Leopold II" />
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <div class="page-kicker">Brussels, Belgium</div>
+            <h1 class="page-title">Equestrian Statue of Leopold II</h1>
         </div>
-    </header>
-
-    <!-- title of monument -->
-    <h1 style="text-align: center; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);">Equestrian Statue of Leopold II</h1>
-
-    <!-- image of statue-->
-    <div class="monument-image-scroll">
-        <img id="imageViewer" src="images/leopold1.jpg" alt="Equestrian Statue of Leopold II">
     </div>
 
-    <!-- button to view next image-->
-    <div class="button-container">
-        <button onclick="nextImage()">Next</button>
-    </div>
+    <!-- main content area -->
+    <div class="content-wrap">
 
-    <!-- body text -->
-    <div class="body-text">
-        <h4 style="color: #9b8f6a">About the Monument</h4>
-        <p>The Equestrian Statue of Leopold II is located on the Place du Trône in Brussels, Belgium.
-            A few years after the King’s death, a statue was proposed to honor his rule over the country as well as his private colony, the Congo Free State.
-            The Belgians raised funds from citizens and aristocrats alike for this project. Thomas Vincotte designed and created the sculpture that was finally placed in 1926, a bit delayed due to World War I.
-            This statue still stands today, and is a memorial that honors the King.</p>
-        <p>This monument has been a primary target of protest and vandalism over the years due to his colonial rule and the terror he imposed on the Congo Free State (more in the Historical Context Section).
-            In the height of 2020 protests following the murder of George Floyd, the activist group Reparons petitioned for the removal of all statues of King Leopold in Brussels which garnered over 80,000 signatures.</p>
-        <p>The statue still remains today, but other steps have been taken to address the colonial rule of Congo, which people have very mixed feelings on today.
-            On the 60th anniversary of Congo’s independence, King Phillipe wrote a letter to Félix Antoine Tshisekedi Tshilombo, the president of the Democratic Republic of Congo.
-            He expressed his regrets for the brutal past.</p>
-        <h4 style="color: #9b8f6a">Historical Context</h4>
-        <p>King Leopold II was a monarch unsatisfied with his reign over Belgium. He was inspired by the stories of Henry M.
-            Stanley, a British explorer who traveled all across Africa. As a monarch with little power, he desired a colony that would provide him with riches and absolute authority.
-            He contacted Stanley, and convinced him to work as his personal agent in the Congo. He secretly gained control over their rich ivory trading market, having Stanley sign treaties with local chiefs.
-            These treaties were deceptive, and the clan chiefs were not aware they were essentially signing away their land to the control of Leopold.</p>
-        <p>A conference in Germany granted him authority over the Congo river basin. In 1885 he was declared the supreme authority of the Congo Free State by his agents.
-            Thus began Leopold’s cruel reign. The Congolese natives were forced to trade only with his agents, and were often very poorly compensated.
-            He also purchased and relied on slave labor to provide him with ivory. When the rubber market began to show promise he became even more ruthless.
-            He would require chiefs to provide him with a certain quota of rubber, taking their wives and children hostage as incentive.</p>
-        <p>The Congolese rebelled against the cruel conditions of the King. He used the Force Publique, his private Army of African soldiers, to stop the rebellion.
-            He ruthlessly commanded the execution of entire villages and families for their refusal to serve him. His army searched for rebels in the forest and killed them, collecting their hands to meet quota.</p>
-        <p>Years later, his crimes were exposed by examining the trading routes between Belgium and the Congo Free State.
-            After seeing the overwhelming evidence of torture, slave labour, and murder, the King was pressured to give his colony over to the control of the Belgian government.</p>
+        <div class="content-section">
+            <h2 class="section-heading">About the Monument</h2>
+            <p>The Equestrian Statue of Leopold II is located on the Place du Trône in Brussels, Belgium. A few years after the King's death, a statue was proposed to honor his rule over the country as well as his private colony, the Congo Free State. The Belgians raised funds from citizens and aristocrats alike for this project. Thomas Vincotte designed and created the sculpture that was finally placed in 1926, a bit delayed due to World War I. This statue still stands today, and is a memorial that honors the King.</p>
+            <p>This monument has been a primary target of protest and vandalism over the years due to his colonial rule and the terror he imposed on the Congo Free State (more in the Historical Context Section). In the height of 2020 protests following the murder of George Floyd, the activist group Reparons petitioned for the removal of all statues of King Leopold in Brussels which garnered over 80,000 signatures.</p>
+            <p>The statue still remains today, but other steps have been taken to address the colonial rule of Congo, which people have very mixed feelings on today. On the 60th anniversary of Congo's independence, King Phillipe wrote a letter to Félix Antoine Tshisekedi Tshilombo, the president of the Democratic Republic of Congo. He expressed his regrets for the brutal past.</p>
+        </div>
 
-        <div class="for-vs-against">
+        <div class="divider"><div class="divider-dot"></div></div>
 
-            <div class="dropdown">
-                <h4 class="dropdown-title">Points for Removal <span class="arrow">▼</span> </h4>
-                <div class="dropdown-content">
-                    <p>- The activist group Reparons petitioned for the removal of all statues of King Leopold in Brussels which garnered over 80,000 signatures.<br><br>
-                    - Belgian citizens with Congolese origins, like Tracy Bibo-Tansia, found the statue a disturbing reminder of the oppression of the Congolese people.<br><br>
-                    - The push for removal was part of a broader anti-racist movement in 2020 inspired by the murder of George Floyd and heightened by the murder of a teenage Moroccan killed during a police chase in Brussels.</p>
+        <div class="content-section">
+            <h2 class="section-heading">Historical Context</h2>
+            <p>King Leopold II was a monarch unsatisfied with his reign over Belgium. He was inspired by the stories of Henry M. Stanley, a British explorer who traveled all across Africa. As a monarch with little power, he desired a colony that would provide him with riches and absolute authority. He contacted Stanley, and convinced him to work as his personal agent in the Congo. He secretly gained control over their rich ivory trading market, having Stanley sign treaties with local chiefs. These treaties were deceptive, and the clan chiefs were not aware they were essentially signing away their land to the control of Leopold.</p>
+            <p>A conference in Germany granted him authority over the Congo river basin. In 1885 he was declared the supreme authority of the Congo Free State by his agents. Thus began Leopold's cruel reign. The Congolese natives were forced to trade only with his agents, and were often very poorly compensated. He also purchased and relied on slave labor to provide him with ivory. When the rubber market began to show promise he became even more ruthless. He would require chiefs to provide him with a certain quota of rubber, taking their wives and children hostage as incentive.</p>
+            <p>The Congolese rebelled against the cruel conditions of the King. He used the Force Publique, his private Army of African soldiers, to stop the rebellion. He ruthlessly commanded the execution of entire villages and families for their refusal to serve him. His army searched for rebels in the forest and killed them, collecting their hands to meet quota.</p>
+            <p>Years later, his crimes were exposed by examining the trading routes between Belgium and the Congo Free State. After seeing the overwhelming evidence of torture, slave labour, and murder, the King was pressured to give his colony over to the control of the Belgian government.</p>
+        </div>
+
+        <div class="divider"><div class="divider-dot"></div></div>
+
+        <!-- arguments for removing the statue -->
+        <div class="content-section">
+            <h2 class="section-heading">Points for Removal</h2>
+            <ul class="arg-list removal">
+                <li>The activist group Reparons petitioned for the removal of all statues of King Leopold in Brussels which garnered over 80,000 signatures.</li>
+                <li>Belgian citizens with Congolese origins, like Tracy Bibo-Tansia, found the statue a disturbing reminder of the oppression of the Congolese people.</li>
+                <li>The push for removal was part of a broader anti-racist movement in 2020 inspired by the murder of George Floyd and heightened by the murder of a teenage Moroccan killed during a police chase in Brussels.</li>
+            </ul>
+        </div>
+
+        <!-- arguments for keeping the statue -->
+        <div class="content-section">
+            <h2 class="section-heading">Points for Restoration</h2>
+            <ul class="arg-list restoration">
+                <li>A counter petition was formed that garnered 20,000 signatures.</li>
+                <li>Some accused the push for removal to be driven by "globalist" or political agendas rather than balanced historical understanding.</li>
+                <li>Some believe removing statues unfairly attacks the legacy of the Belgian monarchy and national history.</li>
+            </ul>
+        </div>
+
+        <div class="divider"><div class="divider-dot"></div></div>
+
+        <!-- the group's stated opinion on the monument -->
+        <div class="content-section">
+            <h2 class="section-heading">Our Perspective</h2>
+            <div class="perspective-block">
+                <p>As a group, we agree that the voices of those most affected by history should come first. In this case, that means listening to Congolese people and Congolese Belgians who have said the statue is painful and represents oppression. Because of that, we believe the statue of King Leopold II should not remain in a public space where it can be seen as honoring him. Leaving it in place ignores the harm tied to his rule and the way it still impacts people today. Public monuments send a message about what a society chooses to celebrate, and this one sends the wrong message.</p>
+                <p>At the same time, we do not think history should be erased. A better solution is to remove the statue from public display and place it in a museum where it can be properly explained. In that setting, people can learn about both Leopold's actions and the suffering in the Congo Free State with full context. This approach helps answer larger questions about controversial monuments. Decisions should be based on the harm they cause and who they represent, not just tradition. It also changes how we view vandalism. While damaging art is not ideal, it often reflects deeper frustration when people feel ignored. In the end, moving monuments like this allows societies to acknowledge history honestly without continuing to glorify it.</p>
+            </div>
+        </div>
+
+        <!-- vote widget, counts are updated live from firebase -->
+        <div class="vote-widget" id="vote-leopold">
+            <h2 class="vote-heading">Cast Your Vote</h2>
+            <p class="vote-subtext">Should the Equestrian Statue of Leopold II be removed from public display?</p>
+            <div class="vote-buttons">
+                <button class="vote-btn vote-btn-remove" onclick="castVote('leopold','remove')">
+                    ↓ Take it down
+                </button>
+                <button class="vote-btn vote-btn-keep" onclick="castVote('leopold','keep')">
+                    ↑ Keep it up
+                </button>
+            </div>
+            <div class="vote-results">
+                <div class="vote-result-row">
+                    <span class="vote-result-label">Take down</span>
+                    <div class="vote-result-bar-wrap">
+                        <div class="vote-result-bar bar-remove" id="bar-remove-leopold"></div>
+                    </div>
+                    <span class="vote-result-count" id="count-remove-leopold">0</span>
+                </div>
+                <div class="vote-result-row">
+                    <span class="vote-result-label">Keep up</span>
+                    <div class="vote-result-bar-wrap">
+                        <div class="vote-result-bar bar-keep" id="bar-keep-leopold"></div>
+                    </div>
+                    <span class="vote-result-count" id="count-keep-leopold">0</span>
                 </div>
             </div>
-
-            <div class="dropdown">
-                <h4 class="dropdown-title">Points for Restoration <span class="arrow">▼</span> </h4>
-                <div class="dropdown-content">
-                    <p>- A counter petition was formed that garnered 20,000 signatures.<br><br>
-                    - Some accused the push for removal to be driven by “globalist” or political agendas rather than balanced historical understanding.<br><br>
-                    - Some believe removing statues unfairly attacks the legacy of the Belgian monarchy and national history.</p>
-                </div>
-            </div>
-
+            <p class="vote-thanks"></p>
         </div>
-        <h4 style="color: #9b8f6a">Our Perspective</h4>
-        <p>As a group, we agree that the voices of those most affected by history should come first.
-            In this case, that means listening to Congolese people and Congolese Belgians who have said the statue is painful and represents oppression.
-            Because of that, we believe the statue of King Leopold II should not remain in a public space where it can be seen as honoring him.
-            Leaving it in place ignores the harm tied to his rule and the way it still impacts people today. Public monuments send a message about what a society chooses to celebrate, and this one sends the wrong message.</p>
-        <p>At the same time, we do not think history should be erased. A better solution is to remove the statue from public display and place it in a museum where it can be properly explained.
-            In that setting, people can learn about both Leopold’s actions and the suffering in the Congo Free State with full context. This approach helps answer larger questions about controversial monuments.
-            Decisions should be based on the harm they cause and who they represent, not just tradition. It also changes how we view vandalism. While damaging art is not ideal, it often reflects deeper frustration when people feel ignored.
-            In the end, moving monuments like this allows societies to acknowledge history honestly without continuing to glorify it.</p>
+
     </div>
 
-    <script>
-        const images = ["images/leopold1.jpg", "images/leopold2.webp", "images/leopold3.avif"];
-    </script>
+    <footer>
+        <span class="footer-copy">Art Crime — Monuments &amp; Memory</span>
+        <span class="footer-name">Isabelle Cox</span>
+    </footer>
 
-    <script src="features.js"></script>
-
- 
 </body>
-
 </html>

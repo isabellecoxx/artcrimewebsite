@@ -1,78 +1,127 @@
+<!--
+    auschwitz.html
+    this page covers the auschwitz concentration camp memorial in oświęcim, poland.
+    it includes a description of the monument, the controversy around it, arguments for and against its removal,
+    the group's perspective, and a vote widget.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Title</title>
+    <title>Auschwitz Concentration Camp Memorial — Art Crime</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/favicon.png">
 </head>
+
+<!-- firebase is loaded before the body so it is ready when features.js runs -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="features.js"></script>
+
 <body>
 
-    <!-- navigation bar -->
-    <header>
-        <div class="headers">
-            <a href="index.html">Home</a>
-            <a href="leopold.html">Leopold II</a>
-            <a href="auschwitz.html">Auschwitz</a>
-            <a href="lincoln.html">Lincoln Memorial</a>
+    <!-- sticky nav bar -->
+    <nav>
+        <a href="index.html" class="nav-logo">Art Crime</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="leopold.html">Leopold II</a></li>
+            <li><a href="auschwitz.html" class="active">Auschwitz</a></li>
+            <li><a href="lincoln.html">Lincoln Memorial</a></li>
+        </ul>
+    </nav>
+
+    <!-- full-width hero image with the page title overlaid -->
+    <div class="page-hero">
+        <img src="images/auschwitz3.jpg" alt="Auschwitz Concentration Camp Memorial" />
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <div class="page-kicker">Oświęcim, Poland</div>
+            <h1 class="page-title">Auschwitz Concentration Camp Memorial</h1>
         </div>
-    </header>
-
-    <!-- title of monument -->
-    <h1 style="text-align: center; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);">Auschwitz Concentration Camp Memorial</h1>
-
-    <!-- image of statue-->
-    <div class="monument-image-scroll">
-        <img id="imageViewer" src="images/auschwitz1.jpg" alt="Auschwitz Concentration Camp Memorial">
-    </div>
-    <div class="button-container">
-        <button onclick="nextImage()">Next</button>
     </div>
 
-    <!-- body text -->
-    <div class="body-text">
-        <h4 style="color: #9b8f6a">About the Monument</h4>
-        <p>The nazi concentration camps were detention centers established from 1933 to 1945, which were initially designed to incarcerate political prisoners and communists.
-            They expanded to hold not only Jewish people but also Jehovah's Witnesses, homosexuals, and prisoners of war.
-            While many began as labor camps, the system evolved to become industrial-scale extermination camps designed for killing millions in gas chambers.
-            There are a few of these camps still up for people to visit throughout Europe.
-            The question I want to tackle here is: Is it beneficial to keep up landmarks for such a horrible tragedy?
-            Would it be better to get rid of these horrifying landmarks or to keep them up for the sake of memory?</p>
-            
-        <div class="for-vs-against">
+    <!-- main content area -->
+    <div class="content-wrap">
 
-            <div class="dropdown">
-                <h4 class="dropdown-title">Points for Removal <span class="arrow">▼</span> </h4>
-                <div class="dropdown-content">
-                    <p>- When millions of people visit these sites to take selfies or follow a tourist itinerary, the gravity of the mass murder is diluted or even lost.<br><br>
-                    - Charging for entry or selling souvenirs nearby turns a site of genocide into a commodity, which is inherently disrespectful to the victims.<br><br>
-                    - For some visitors, especially those with a personal family history or existing psychological vulnerabilities, visiting these sites can lead to severe anxiety, depression, or PTSD.</p>
+        <div class="content-section">
+            <h2 class="section-heading">About the Monument</h2>
+            <p>The nazi concentration camps were detention centers established from 1933 to 1945, which were initially designed to incarcerate political prisoners and communists. They expanded to hold not only Jewish people but also Jehovah's Witnesses, homosexuals, and prisoners of war. While many began as labor camps, the system evolved to become industrial-scale extermination camps designed for killing millions in gas chambers. There are a few of these camps still up for people to visit throughout Europe.</p>
+            <p>The question I want to tackle here is: Is it beneficial to keep up landmarks for such a horrible tragedy? Would it be better to get rid of these horrifying landmarks or to keep them up for the sake of memory?</p>
+        </div>
+
+        <div class="divider"><div class="divider-dot"></div></div>
+
+        <!-- arguments for and against keeping the site as a public memorial, presented in a neutral way with no bias -->
+        <div class="content-section">
+            <h2 class="section-heading">Points for Removal</h2>
+            <ul class="arg-list removal">
+                <li>When millions of people visit these sites to take selfies or follow a tourist itinerary, the gravity of the mass murder is diluted or even lost.</li>
+                <li>Charging for entry or selling souvenirs nearby turns a site of genocide into a commodity, which is inherently disrespectful to the victims.</li>
+                <li>For some visitors, especially those with a personal family history or existing psychological vulnerabilities, visiting these sites can lead to severe anxiety, depression, or PTSD.</li>
+            </ul>
+        </div>
+
+        <!-- arguments for keeping the site as a public memorial -->
+        <div class="content-section">
+            <h2 class="section-heading">Points for Restoration</h2>
+            <ul class="arg-list restoration">
+                <li>Many of the visitors are descendants of survivors or victims seeking to see what their family went through and to connect further with their family history.</li>
+                <li>Some people visit to see the true scale of what happened rather than hearing stories about the events. Seeing the physical evidence like piles of shoes, suitcases, or hair transforms statistics into the reality of individual human lives.</li>
+                <li>Visiting landmarks like this with a dark history can instill a sense of moral responsibility and help recognize the early warning signs for events like this.</li>
+            </ul>
+        </div>
+
+        <div class="divider"><div class="divider-dot"></div></div>
+
+        <!-- the group's stated opinion on the monument, which should be supported by the arguments above but not directly copy any of them -->
+        <div class="content-section">
+            <h2 class="section-heading">Our Perspective</h2>
+            <div class="perspective-block">
+                <p>The debate over whether to preserve concentration camps as landmarks shows the tension between the necessity of historical truth and the difficulty of maintaining human dignity. While the risks of dark tourism, ranging from inappropriate behavior to the psychological toll on visitors, are significant, they are outweighed by the physical site's role as an irrefutable witness to history.</p>
+                <p>Ultimately, we believe that the preservation of these sites should not be seen as an attempt to fixate on the tragedies of the past, but as a commitment to the future to never let something like this happen again.</p>
+            </div>
+        </div>
+
+        <!-- vote widget, counts are updated live from firebase -->
+        <div class="vote-widget" id="vote-auschwitz">
+            <h2 class="vote-heading">Cast Your Vote</h2>
+            <p class="vote-subtext">Should the Auschwitz site be preserved as a public memorial?</p>
+            <div class="vote-buttons">
+                <button class="vote-btn vote-btn-remove" onclick="castVote('auschwitz','remove')">
+                    ↓ Close it down
+                </button>
+                <button class="vote-btn vote-btn-keep" onclick="castVote('auschwitz','keep')">
+                    ↑ Keep it open
+                </button>
+            </div>
+            <div class="vote-results">
+                <div class="vote-result-row">
+                    <span class="vote-result-label">Close down</span>
+                    <div class="vote-result-bar-wrap">
+                        <div class="vote-result-bar bar-remove" id="bar-remove-auschwitz"></div>
+                    </div>
+                    <span class="vote-result-count" id="count-remove-auschwitz">0</span>
+                </div>
+                <div class="vote-result-row">
+                    <span class="vote-result-label">Keep open</span>
+                    <div class="vote-result-bar-wrap">
+                        <div class="vote-result-bar bar-keep" id="bar-keep-auschwitz"></div>
+                    </div>
+                    <span class="vote-result-count" id="count-keep-auschwitz">0</span>
                 </div>
             </div>
-
-            <div class="dropdown">
-                <h4 class="dropdown-title">Points for Restoration <span class="arrow">▼</span> </h4>
-                <div class="dropdown-content">
-                    <p>- Many of the visitors are descendants of survivors or victims seeking to see what their family went through and to connect further with their family history.<br><br>
-                    - Some people visit to see the true scale of what happened rather than hearing stories about the events. Seeing the physical evidence like piles of shoes, suitcases, or hair transforms statistics into the reality of individual human lives.<br><br>
-                    - Visiting landmarks like this with a dark history can instill a sense of moral responsibility and help recognize the early warning signs for events like this.</p>
-                </div>
-            </div>
-
+            <p class="vote-thanks"></p>
         </div>
-        <h4 style="color: #9b8f6a">Our Perspective</h4>
-        <p>The debate over whether to preserve concentration camps as landmarks shows the tension between the necessity of historical truth and the difficulty of maintaining human dignity.
-            While the risks of dark tourism, ranging from inappropriate behavior to the psychological toll on visitors, are significant, they are outweighed by the physical site’s role as an irrefutable witness to history.
-            Ultimately, we believe that the preservation of these sites should not be seen as an attempt to fixate on the tragedies of the past, but as a commitment to the future to never let something like this happen again.</p>
 
     </div>
 
-    <script>
-        const images = ["images/auschwitz1.jpg", "images/auschwitz2.jpg", "images/auschwitz3.jpg"];
-    </script>   
-    <script src="features.js"></script>
- 
+    <footer>
+        <span class="footer-copy">Art Crime — Monuments &amp; Memory</span>
+        <span class="footer-name">Isabelle Cox</span>
+    </footer>
+
 </body>
-
 </html>
