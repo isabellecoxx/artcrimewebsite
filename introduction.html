@@ -1,0 +1,198 @@
+<!--
+    introduction.html
+    this page provides a lengthy introduction to the topic of controversial monuments,
+    including terminology definitions, context, and significance.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction, Art Crime</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/favicon.png">
+</head>
+
+<!-- firebase is loaded before the body so it is ready when features.js runs -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="features.js"></script>
+
+<body>
+
+    <!-- sticky nav bar -->
+    <nav>
+        <a href="index.html" class="nav-logo">Art Crime</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="introduction.html" class="active">Introduction</a></li>
+            <li><a href="leopold.html">Leopold II</a></li>
+            <li><a href="auschwitz.html">Auschwitz</a></li>
+            <li><a href="lincoln.html">Lincoln Memorial</a></li>
+        </ul>
+    </nav>
+
+    <!-- intro, no banner image, just typographic treatment -->
+    <div class="intro-hero">
+        <div class="hero-kicker">Monuments &amp; Memory</div>
+        <h1 class="hero-title" style="max-width: 700px;">Introduction</h1>
+        <div class="hero-questions">
+            <p class="hero-question">A guide to the terminology, historical framework, and cultural significance of controversial public monuments.</p>
+        </div>
+    </div>
+
+    <div class="intro-body">
+
+        <!-- table of contents -->
+        <div class="toc">
+            <span class="toc-label">Contents</span>
+            <ul class="toc-list">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#terminology">Key Terminology</a></li>
+                <li><a href="#history">Historical Framework</a></li>
+                <li><a href="#significance">Why It Matters</a></li>
+                <li><a href="#framing">How We Approached This Project</a></li>
+            </ul>
+        </div>
+
+        <!-- overview -->
+        <div class="content-section" id="overview">
+            <h2 class="section-heading">Overview</h2>
+            <p>For our case studies, we chose to research different instances of Vandalism and Destruction.
+                More specifically, in the context of historical monuments and memorials.
+                We wanted to understand how controversial landmarks and instances of vandalism have been addressed socially and politically.
+                This discussion is incredibly relevant yet highly contested.
+                As governments are making efforts to address their colonial histories and past injustices, society at large is increasingly demanding the removal or re-contextualization of monuments throughout the world.
+                We all seem to understand that public art plays a role in shaping how we perceive our communities.</p>
+            <p>For our individual contributions, we researched three unique monuments that gave us different perspectives and insights into the role of vandalism in the arts.
+                First is a statue of King Leopold II located in Brussels, Belgium.
+                This site served as an obvious example of a monument meant to commemorate a person who committed great acts of violence.
+                It brought into question the potential methods of addressing monuments that honor oppressive historical figures.
+                Second is the Emancipation Memorial located in Washington, D.C.
+                This monument raised a different issue. Although it commemorated the emancipation of slaves, critics argue that the imagery reinforces a racial hierarchy.
+                This raises questions about who creates monuments and whose perspectives are prioritized.
+                Finally, the Auschwitz-Birkenau Memorial and Museum serves as an example of a site dedicated to remembrance and education, rather than celebration.
+                Together, these examples demonstrate the range of challenges involved in preserving, removing, or re-contextualizing monuments.</p>
+        </div>
+
+        <div class="divider"><div class="divider-dot"></div></div>
+
+        <!-- terminology -->
+        <div class="content-section" id="terminology">
+            <h2 class="section-heading">Key Terminology</h2>
+
+            <p style="margin-bottom: 2rem;">To ensure that these controversial monuments can be analyzed accurately, several key terms have been defined for greater clarity and common understanding.</p>
+
+            <div class="definition-block">
+                <div class="definition-term">Vandalism</div>
+                <div class="definition-body">
+                    “The crime of intentionally damaging property belonging to other people.”
+                    <a href="https://dictionary.cambridge.org/us/dictionary/english/vandalism" target="_blank" style="color: #b5935a; font-weight: 500; text-decoration: none;">
+                        (Cambridge Dictionary)
+                    </a>
+                    There are two qualifiers for an act to be considered vandalism. The property being damaged is not yours, and the act of damaging is intentional.
+                </div>
+            </div>
+
+            <div class="definition-block">
+                <div class="definition-term">Destruction</div>
+                <div class="definition-body">
+                    The act of “ruining a structure, organic existence, or condition” of something, to “damage beyond repair.”
+                    <a href="https://www.merriam-webster.com/dictionary/destroy" target="_blank" style="color: #b5935a; font-weight: 500; text-decoration: none;">
+                        (Merriam-Webster Dictionary)
+                    </a>
+                    This term is very broad, and vandalism can fall under it as a type of destruction.
+                </div>
+            </div>
+
+            <div class="definition-block">
+                <div class="definition-term">Monument</div>
+                <div class="definition-body">
+                    “A lasting evidence, reminder, or example of someone or something notable or great.”
+                    <a href="https://www.merriam-webster.com/dictionary/monument" target="_blank" style="color: #b5935a; font-weight: 500; text-decoration: none;">
+                        (Merriam-Webster Dictionary)
+                    </a>
+                    This term refers to any piece of evidence that serves to honor/remember something notable. In the context of our project, we’re specifically concerned with statues and sculptures.
+                </div>
+            </div>
+
+            <div class="definition-block">
+                <div class="definition-term">Memorial</div>
+                <div class="definition-body">
+                    "Something that “serves to preserve rememberance.”
+                    <a href="https://www.merriam-webster.com/dictionary/memorial" target="_blank" style="color: #b5935a; font-weight: 500; text-decoration: none;">
+                        (Merriam-Webster Dictionary)
+                    </a>
+                    This term refers to a structure created specifically to remember a person, event, or group. While monuments often emphasize celebration, memorials are associated with remembrance, mourning, and commemoration.
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"><div class="divider-dot"></div></div>
+
+        <!-- historical framework -->
+        <div class="content-section" id="history">
+            <h2 class="section-heading">Historical Framework</h2>
+            <p>In terms of vandalism and destruction, there is automatically a negative connotation when hearing these words.
+                When given context to different controversial landmarks, it becomes apparent that there is a discussion to be had about whether it is ethical to keep these landmarks up, or if it is more appropriate to take them down.
+                One example of this phenomenon is the top-down nature of monuments, where it is always the victors of history that put up monuments; it is never the people that lose or are oppressed that get the same privilege.
+                The Lincoln Memorial represents this quite well, with the imagery of a kneeling Black man and a standing Lincoln, positioning African Americans as inferior.
+                Memorials can also serve as a tool to promote certain perspectives through the public arts, whether it be correct or incorrect.
+                One such instance of this is the statue of King Leopold II, which stands to promote Belgian imperial progress and overlooks the violence committed against the Congolese people. </p>
+            <p>In cases like these, vandalism feels like the best option to get a response from the public as well as the people that may have put it in place, or to simply make them think about why one may have done this and acknowledge the other side.
+                It can also be seen as a political act done by those who feel left out from the official narrative as a way of speaking back to the monument itself.
+                On the other side of the spectrum, there are also controversial monuments where, regardless of their ugly histories, it is our moral responsibility as humans to best preserve them and to serve as permanent witnesses to atrocities in order to learn from our mistakes throughout history.
+                Our example is Auschwitz-Birkenau and how there are also arguments against keeping it standing as a landmark, but there is a big push for preserving it for the sake of education and remembrance. </p>
+        </div>
+
+        <div class="divider"><div class="divider-dot"></div></div>
+
+        <!-- why it matters -->
+        <div class="content-section" id="significance">
+            <h2 class="section-heading">Why It Matters</h2>
+            <p>Vandalism and destruction are important topics to discuss because our interpretations of what it means to vandalize and/or destroy things is perpetually changing, which is heavily intertwined with the cultural and political landscapes of the current era.
+                While both of these words have a mostly negative connotation in legal terms, they have both been reclaimed in a number of ways through various artistic mediums and forms of political protest.
+                For example, graffiti can be an artistic form of vandalism that seeks to counter established structures of power and convey messages to large public audiences that otherwise might not be seen or heard by many.
+                Destruction is typically more permanent and drastic than vandalism, which can send even stronger messages about social issues and perceived injustices, and can also call into question who has the power to destroy something; if the public is forbidden from doing so by governing bodies who are supposed to be representing them, even when the destruction is being used to combat an injustice, then perhaps it is worth committing the illegal act for a cause.
+                The controversial and illegal aspects of vandalism and destruction also act as a means of generating attention to the message, and calls for destruction of historically fraught monuments, often following vandalism, are a significant indicator of social change that is occurring worldwide.</p>
+            <p>The vandalism or potential destruction of these monuments, specifically the King Leopold II Monument, the Lincoln Emancipation Memorial, and the Auschwitz Concentration Camp, reflects a growing and increasingly relevant concern about memorializing controversial moments or figures in history.
+                The monuments of Leopold II and Abraham Lincoln spark conversations about distorted cultural narratives surrounding the subjugation of historically oppressed groups, such as the people of the Congo under Belgian rule or enslaved African Americans.
+                Many argue that monuments glorifying the triumphs of these white figures being allowed to stand is an insult to the victims of these historical injustices, and society cannot strive for equality while also maintaining reverence for displays of inequality.
+                These claims ring especially true in a time where censorship is on the rise, and the United States government is actively removing displays of information intended to shed light on the experiences of enslaved people and stories that have continuously been pushed aside in favor of a whiter, more sanitized view of history.
+                Now, more than ever, it is essential to critically analyze the implications of destroying these monuments, which could be a symbol of combatting injustice in the case of the Leopold II and Lincoln monuments, or potential historical erasure in the case of the Auschwitz memorial.</p>
+        </div>
+
+        <div class="divider"><div class="divider-dot"></div></div>
+
+        <!-- how we approached the project -->
+        <div class="content-section" id="framing">
+            <h2 class="section-heading">How We Approached This Project</h2>
+            <div class="perspective-block">
+                <p>We approached this project with the desire to discuss a variety of perspectives on the issue of vandalizing and destroying controversial historical monuments.
+                    We intentionally selected case studies from around the world that have generated various levels of criticism, immortalize different figures and moments, and send different messages to the public.
+                    We wanted to evaluate the nuances of these three case studies because we felt they represented a wide range of historical events, and we each picked one that resonated with our own interests and prior knowledge.
+                    We wanted to include one American example to call specific attention to the cultural landscape we have witnessed firsthand, especially because our education system perpetuates a very limited view of slavery that we felt required further elaboration.
+                    Additionally, we chose two international examples to demonstrate the worldwide impact of movements such as Black Lives Matter, as well as how education and remembrance can be promoted through monuments such as Auschwitz-Birkenau, instead of glorifying the tragic subject matter.</p>
+            </div>
+        </div>
+
+        <!-- navigation to case studies -->
+        <div class="intro-cta">
+            <span class="intro-cta-label">Explore the case studies</span>
+            <div class="intro-cta-links">
+                <a class="intro-cta-link" href="leopold.html">Leopold II</a>
+                <a class="intro-cta-link" href="auschwitz.html">Auschwitz</a>
+                <a class="intro-cta-link" href="lincoln.html">Lincoln Memorial</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <span class="footer-copy">Art Crime - Monuments &amp; Memory</span>
+        <span class="footer-name">Isabelle Cox, Rowan Hayes, Ahmed Al-Hilali</span>
+    </footer>
+
+</body>
+</html>

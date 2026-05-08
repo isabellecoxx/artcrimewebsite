@@ -27,6 +27,7 @@
         <a href="index.html" class="nav-logo">Art Crime</a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
+            <li><a href="introduction.html">Introduction</a></li>
             <li><a href="leopold.html">Leopold II</a></li>
             <li><a href="auschwitz.html">Auschwitz</a></li>
             <li><a href="lincoln.html" class="active">Lincoln Memorial</a></li>
@@ -137,10 +138,54 @@
 
     </div>
 
+    <!-- sources section, sits outside content-wrap so it spans the same max-width -->
+    <div class="sources-section">
+
+        <button
+            class="sources-toggle"
+            aria-expanded="false"
+            aria-controls="sources-panel-leopold"
+            onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true' ? 'false' : 'true'); document.getElementById('sources-panel-leopold').classList.toggle('open');">
+            Sources
+            <span class="sources-chevron">▾</span>
+        </button>
+
+        <!-- sources panel-->
+        <div class="sources-panel" id="sources-panel-leopold" role="region">
+            <ul class="sources-list">
+                <li>
+                    <a href="#" target="_blank" rel="noopener">
+                        <span class="source-title">Placeholder Source Title</span> — Author Last, First. Publication Name. Year.
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" rel="noopener">
+                        <span class="source-title">Placeholder Source Title</span> — Author Last, First. Publication Name. Year.
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" rel="noopener">
+                        <span class="source-title">Placeholder Source Title</span> — Author Last, First. Publication Name. Year.
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" rel="noopener">
+                        <span class="source-title">Placeholder Source Title</span> — Author Last, First. Publication Name. Year.
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" rel="noopener">
+                        <span class="source-title">Placeholder Source Title</span> — Author Last, First. Publication Name. Year.
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+ 
     <footer>
         <span class="footer-copy">Art Crime - Monuments &amp; Memory</span>
         <span class="footer-name">Isabelle Cox, Rowan Hayes, Ahmed Al-Hilali</span>
     </footer>
-
+ 
 </body>
 </html>
